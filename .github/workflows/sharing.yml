@@ -15,6 +15,7 @@ jobs:
 
     outputs:
       output1: ${{steps.step1.outputs.var1}}
+      output2: ${{steps.step2.outputs.var2}}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -22,10 +23,16 @@ jobs:
         run: |
           echo "::set-output name=var1::Rodolfo"
           echo Setei ${{env.var1}}
+      - id: step2
+        run: |
+          echo "::set-output name=var2::Importante"
 
   job2:
     runs-on: ubuntu-latest
     needs: build
     steps:
       - id: step2
-        run: echo "Variavel ${{needs.build.outputs.output1}}"
+        run: |
+          echo "Print vars"
+          echo "Variavel ${{needs.build.outputs.output1}}"
+          echo Variavel2: ${{needs.build.outputs.output2}}
