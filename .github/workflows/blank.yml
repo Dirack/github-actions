@@ -1,0 +1,16 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Env variables study
+
+on:
+  workflow_dispatch:
+
+jobs:
+  var:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set a value to GITHUB ENV
+        run: echo "meuvalor=ROdolfo" >> $GITHUB_ENV
+      - name: Call the value
+        run: |
+          echo "meu valor é ${{ env.meuvalor}}" # Este é um comentário
