@@ -21,7 +21,7 @@ jobs:
       - id: step1
         run: |
           echo "::set_output name=var1::Rodolfo"
-          echo Setei ${{build.outputs.output1}}
+          echo Setei ${{env.var1}}
 
   job2:
     runs-on: ubuntu-latest
