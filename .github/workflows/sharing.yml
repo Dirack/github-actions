@@ -14,12 +14,14 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      output1: ${{steps.step1.outputs.var1_name}}
+      output1: ${{steps.step1.outputs.var1}}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - id: step1
-        run: echo "::set_output name=var1_name::Rodolfo"
+        run: |
+          echo "::set_output name=var1::Rodolfo"
+          echo Setei ${{build.outputs.output1}}
 
   job2:
     runs-on: ubuntu-latest
