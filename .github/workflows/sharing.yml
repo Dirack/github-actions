@@ -20,7 +20,7 @@ jobs:
     steps:
       - id: step1
         run: |
-          echo "::set_output name=var1::Rodolfo"
+          echo "::set-output name=var1::Rodolfo"
           echo Setei ${{env.var1}}
 
   job2:
