@@ -5,6 +5,9 @@ name: Env variables study
 on:
   workflow_dispatch:
 
+env:
+  myvar: Escopo global
+
 jobs:
   var:
     runs-on: ubuntu-latest
@@ -12,5 +15,18 @@ jobs:
       - name: Set a value to GITHUB ENV
         run: echo "meuvalor=ROdolfo" >> $GITHUB_ENV
       - name: Call the value
+        id: meu
         run: |
           echo "meu valor é ${{ env.meuvalor}}" # Este é um comentário
+  escopo:
+    runs-on: ubuntu-latest
+    env:
+      myvarjob: Escopo do job
+    steps:
+      - name: Show vars
+        run: |
+          echo "${{env.myvar}}"
+          echo "${{env.myvarjob}}
+          echo "${{env.myvarstep}}"
+        env:
+          myvarstep: Escopo do step
