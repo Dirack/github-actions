@@ -18,4 +18,4 @@ jobs:
     
     steps:
       - name: Run a one-line script
-        run: echo ${{env.MEU_AMBIENTE}}
+        run: echo ${{vars.MEU_AMBIENTE}}
