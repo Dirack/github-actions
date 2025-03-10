@@ -16,3 +16,8 @@ jobs:
           echo Hello, world!
           pwd
           ls
+      - name: Run a script
+        run: |
+          cd C:\Users\RodolfoNEVES\Documents\Eliis_SECB\1_Projects\metadata_mvp_sem
+          .\myenv\Scripts\activate
+          python -m pytest
